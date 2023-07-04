@@ -1,10 +1,23 @@
-#PD for React Native
+# PD for React Native
+
+This is a proof-of-concept implementation of the `pd-for-ios` and `pd-for-android` `libpd` libraries.
 
 ## Setup
 
 You can start from this project and not have to worry about adding the pd-for-ios library. If you are migrating to an existing project, make sure you check out these steps:
 
--
+### iOS Setup
+
+the [pd-for-ios repository](https://github.com/libpd/pd-for-ios) is _extremely_ light on details. [this guy's video series](https://www.youtube.com/watch?v=l5GQqCDmBZY) is _very_ detailed if you end up getting in the weeds. these two steps are the biggest gotchas.
+
+- add lib to _Target Dependencies_ and _Link Binaries with Libraries_
+  ![setup_1](setup_ios_1.jpg)
+- add patch to _User Header Search Paths_ being sure to select `recursive`
+  ![setup_2](setup_ios_2.jpg)
+
+### Android setup
+
+Android is pretty easy. [Follow the steps in the repo README](https://github.com/libpd/pd-for-android)
 
 ## Editing and adding patches
 
@@ -18,6 +31,6 @@ Patches need to be manually updated in both the `ios` and `android` apps. There 
 
 ## Troubleshooting
 
-- [The official docs for Native Modules](https://reactnative.dev/docs/native-modules-intro) will answer a lot of questions.
-- Recommend working on native files in native editors. ie obj-c files in XCode and .java files in Android Studio. Those IDEs have lots of built-in features that will do you favors.
+- [The official docs for Native Modules](https://reactnative.dev/docs/native-modules-intro) will answer a lot of questions (and they're also frustratingly brief.)
+- I recommend working on native files in native editors. ie obj-c files in XCode and .java files in Android Studio. Those IDEs have lots of built-in features that will do you favors.
 - `AppDelegate.mm` and `MainActivity.java` each have a commented out line that can load a patch manually, bypassing the Native Module. You can also load `test_tone_on.pd` which will play a sound without any interaction.
