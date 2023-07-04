@@ -25,9 +25,12 @@
   self.audioController = [[PdAudioController alloc] init];
   AVAudioSession *session = AVAudioSession.sharedInstance;
   self.sampleRate = session.sampleRate;
-  [self.audioController configurePlaybackWithSampleRate:44100 numberChannels:2 inputEnabled:NO mixingEnabled:YES];
+  [self.audioController configurePlaybackWithSampleRate:self.sampleRate numberChannels:2 inputEnabled:NO mixingEnabled:YES];
   
+  // load patch manually instead of via Native Modules
   //[PdBase openFile:@"test_tone.pd" path:[[NSBundle mainBundle] resourcePath]];
+
+  [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(checkSampleRate:) userInfo:nil repeats:YES];
 
   [self.audioController setActive:YES];
   [self.audioController print];
