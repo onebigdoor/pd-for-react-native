@@ -4,7 +4,8 @@ This is a proof-of-concept implementation of the `pd-for-ios` and `pd-for-androi
 
 ## Setup
 
-You can start from this project and not have to worry about adding the pd-for-ios library. If you are migrating to an existing project, make sure you check out these steps:
+On iOS, you need to follow the steps in the [pd-for-ios repository](https://github.com/libpd/pd-for-ios) to download the submodules.
+On Android, you'll only need to follow the setup if you're migrating to an existing project.
 
 ### iOS Setup
 
